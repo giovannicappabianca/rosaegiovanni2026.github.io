@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rosa & Giovanni – 30 Agosto 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdoAEAsAAAAAHgGXFG645Dsqw2YKx_0563qtJFI"></script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- GDPR Cookie Banner -->
+  <div id="gdpr-banner" class="gdpr-banner hidden">
+    <div class="gdpr-content">
+      <div class="gdpr-text">
+        <h3>Privacy e Cookie</h3>
+        <p>
+          Utilizziamo i tuoi dati personali solo per gestire la tua partecipazione al nostro matrimonio. 
+          I dati raccolti (nome, email, preferenze alimentari) saranno utilizzati esclusivamente per 
+          l'organizzazione dell'evento e non saranno condivisi con terze parti.
+        </p>
+        <p>
+          Questo sito utilizza Google reCAPTCHA per la sicurezza. Continuando accetti la nostra 
+          <a href="#privacy-policy" id="privacy-link">informativa sulla privacy</a> e l'uso dei cookie necessari.
+        </p>
+      </div>
+      <div class="gdpr-actions">
+        <button id="gdpr-accept" class="btn">Accetto</button>
+        <button id="gdpr-decline" class="btn secondary">Rifiuto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" class="privacy-modal hidden">
+    <div class="privacy-modal-content">
+      <div class="privacy-modal-header">
+        <h2>Informativa sulla Privacy</h2>
+        <button id="privacy-close" class="privacy-close">&times;</button>
+      </div>
+      <div class="privacy-modal-body">
+        <h3>Titolare del Trattamento</h3>
+        <p>Rosa e Giovanni, in qualità di sposi e organizzatori dell'evento matrimoniale del 30 Agosto 2026.</p>
+        
+        <h3>Dati Raccolti</h3>
+        <ul>
+          <li>Nome e cognome/famiglia</li>
+          <li>Indirizzo email (facoltativo)</li>
+          <li>Numero di partecipanti</li>
+          <li>Preferenze alimentari e allergie</li>
+          <li>Note aggiuntive</li>
+        </ul>
+        
+        <h3>Finalità del Trattamento</h3>
+        <p>I dati personali sono raccolti esclusivamente per:</p>
+        <ul>
+          <li>Organizzazione dell'evento matrimoniale</li>
+          <li>Gestione delle prenotazioni e del catering</li>
+          <li>Comunicazioni relative all'evento</li>
+        </ul>
+        
+        <h3>Base Giuridica</h3>
+        <p>Il trattamento è basato sul consenso dell'interessato (Art. 6, par. 1, lett. a del GDPR).</p>
+        
+        <h3>Conservazione dei Dati</h3>
+        <p>I dati saranno conservati fino al termine dell'evento e per un periodo massimo di 12 mesi successivi per eventuali comunicazioni post-evento.</p>
+        
+        <h3>Diritti dell'Interessato</h3>
+        <p>Hai il diritto di:</p>
+        <ul>
+          <li>Accedere ai tuoi dati personali</li>
+          <li>Rettificare dati inesatti</li>
+          <li>Cancellare i tuoi dati</li>
+          <li>Revocare il consenso in qualsiasi momento</li>
+        </ul>
+        
+        <h3>Cookie e Servizi di Terze Parti</h3>
+        <p>Questo sito utilizza:</p>
+        <ul>
+          <li><strong>Google reCAPTCHA:</strong> per la sicurezza del modulo (soggetto alla Privacy Policy di Google)</li>
+          <li><strong>OpenStreetMap:</strong> per la visualizzazione delle mappe</li>
+          <li><strong>Cookie tecnici:</strong> necessari per il funzionamento del sito</li>
+        </ul>
+        
+        <h3>Contatti</h3>
+        <p>Per esercitare i tuoi diritti o per qualsiasi domanda, contattaci all'indirizzo email fornito nell'invito.</p>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero"></header>
+    <div class="container center">
+      <div class="badge-date">Domenica • 30 Agosto 2026</div>
+      <h1 class="title">Rosa & Giovanni</h1>
+      <p class="subtitle">Ti aspettano al loro matrimonio</p>
+      <div class="cta">
+        <a class="btn" href="#rsvp">Conferma presenza</a>
+        <a class="btn secondary" href="#location">Scopri la location</a>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </header>
+
+  <div class="container hero-photo">
+    <div class="frame">
+      <picture>
+        <source srcset="images/hero-sposi.png" type="image/jpeg" />
+        <img
+          src="images/hero-sposi.png"
+          alt="Biciclette in campagna"
+          width="1600" height="960"
+          loading="eager" decoding="async" fetchpriority="high"
+        />
+      </picture>
+    </div>
+    <div class="caption">Uno scatto che racconta noi 💙</div>
+  </div>
+
+  <main class="container">
+    <!-- Cerimonia -->
+    <section id="chiesa" class="reveal">
+      <h2 class="section-title">Cerimonia</h2>
+      <p class="muted mb-18">
+        La cerimonia si terrà nella storica Chiesa di <strong>Maria SS del Rosario del Rosario</strong> alle ore
+        <strong>11.00</strong>. Ti aspettiamo con qualche minuto di anticipo per accomodarti con calma.
+      </p>
+
+      <p class="with-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4f7f9b" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zM8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+        </svg>
+        <strong>Indirizzo:</strong>
+        <a class="address-link" href="https://www.google.com/maps/search/?api=1&query=Chiesa+di+Maria+Santissima+del+Rosario,+Beltiglio" target="_blank" rel="noopener noreferrer">
+          Chiesa di Maria SS. del Rosario, Beltiglio (BN)
+        </a>
+      </p>
+
+      <p class="with-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 16 16" fill="#4f7f9b" aria-hidden="true">
+          <path d="M8 3.5a.5.5 0 0 1 .5.5v3.5l2.5 1.5a.5.5 0 1 1-.5.866l-3-1.8A.5.5 0 0 1 7.5 7V4a.5.5 0 0 1 .5-.5z"/>
+          <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16zm0-1A7 7 0 1 0 8 1a7 7 0 0 0 0 14z"/>
+        </svg>
+        <strong>Ore: 11.00</strong> Inizio cerimonia
+      </p>
+
+      <div class="gallery">
+        <img class="g-span-7" src="images/chiesa.jpg" alt="Vista della Chiesa di Maria SS. del Rosario" />
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location">
+      <h2 class="section-title">La Location</h2>
+      <p class="muted mb-18">
+        Uno spazio elegante immerso nel cuore della natura sannita, perfetto per celebrare insieme.
+        Palazzo Pecci è un gioiello architettonico che custodisce secoli di storia (San Leucio del Sannio, Benevento).
+      </p>
+
+      <p class="with-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4f7f9b" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zM8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+        </svg>
+        <strong>Indirizzo:</strong>
+        <a class="address-link" href="https://www.google.com/maps/search/?api=1&query=Via+Giacomo+Zamparelli,+San+Leucio+del+Sannio+(BN)" target="_blank" rel="noopener noreferrer">
+          Via Giacomo Zamparelli, 82010 San Leucio del Sannio BN
+        </a>
+      </p>
+
+      <div class="gallery">
+        <img class="g-span-7" src="images/location-1.jpg" alt="Giardino della location al tramonto" />
+        <img class="g-span-5" src="images/location-2.jpg" alt="Dettaglio allestimento tavoli" />
+        <img class="g-span-4" src="images/location-3.jpg" alt="Ingresso principale della struttura" />
+        <img class="g-span-8" src="images/location-4.jpg" alt="Vista panoramica degli esterni" />
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp">
+      <div class="card form-card">
+        <h2 class="section-title">Compila qui</h2>
+        <p class="muted">Conferma la tua presenza e segnala eventuali esigenze alimentari.</p>
+
+        <form id="rsvp-form" action="#" method="post" novalidate>
+          <label for="famiglia">Cognome/Famiglia</label>
+          <input type="text" id="famiglia" name="famiglia" placeholder="Es. Maria Rossi" required>
+
+          <label>Noi diremo sì. E voi? Parteciperete?</label>
+          <fieldset>
+            <div class="radio-row" role="radiogroup" aria-labelledby="presenza-label">
+              <label class="radio" for="presente">
+                <input type="radio" id="presente" name="presenza" value="si" required>
+                <span>Sì</span>
+              </label>
+              <label class="radio" for="assente">
+                <input type="radio" id="assente" name="presenza" value="no" required>
+                <span>No</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="numero-persone-container" class="numero-persone hidden">
+            <label for="numero-persone">Quante persone sarete?</label>
+            <input type="number" id="numero-persone" name="numero-persone" placeholder="Es. 1,2,3" min="1" max="10" inputmode="numeric">
+            <p class="hint">Max 10 per invio. Se siete di più, indicacelo nelle note.</p>
+          </div>
+
+          <div id="invitati-container" class="card form-card hidden mt-12">
+            <h3 class="section-title section-title--compact">Dettagli invitati</h3>
+            <div id="lista-invitati"></div>
+          </div>
+
+          <label for="note">Note</label>
+          <input type="text" id="note" name="note" placeholder="Es. richieste particolari" required>
+
+          <label for="email">Email (per inviare dettagli)</label>
+          <input type="email" id="email" name="email" placeholder="nome@email.com">
+
+          <div class="actions-row">
+            <button class="btn" type="submit">Invia conferma</button>
+            <span class="hint">Riceverai una conferma a breve.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Rosa & Giovanni — Con affetto vi aspettiamo 💙</p>
+
+      <!-- MAPPA (Leaflet) -->
+      <div id="map" class="map"></div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- App JS -->
+  <script src="script.js" defer></script>
+</body>
+</html>
